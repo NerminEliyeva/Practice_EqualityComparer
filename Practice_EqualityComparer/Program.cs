@@ -8,10 +8,11 @@ class Program
         Customer customer1 = new Customer("Narmin", "Aliyeva");
         Customer customer2 = new Customer("Narmin", "Aliyeva");
 
-        Console.WriteLine(customer1 == customer2); // False
-        Console.WriteLine(customer1.Equals(customer2)); // False
+
 
         #region EqualityComparer istifade olunmadiqda :
+        //Console.WriteLine(customer1 == customer2); // False
+        //Console.WriteLine(customer1.Equals(customer2)); // False
 
         ////Dictionary 
         //var dictionary = new Dictionary<Customer, string>();
@@ -28,7 +29,8 @@ class Program
         #endregion
 
         #region EqualityCompare istifade olunduqda : 
-
+        CustomerComparer customerComparer = new CustomerComparer();
+        Console.WriteLine(customerComparer.Equals(customer1, customer2));
 
         var dictionary = new Dictionary<Customer, string>(new CustomerComparer());
         dictionary[customer1] = "Narmin";
